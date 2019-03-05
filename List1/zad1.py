@@ -310,9 +310,10 @@ subsets(set([1,2,3,4]))
 
 # ### 9. Write a program that returns the most frequent letter in a string.
 
-# In[24]:
+# In[6]:
 
 
+from collections import defaultdict
 def frequent_letter(word):
     """
     Args:
@@ -324,7 +325,7 @@ def frequent_letter(word):
     for i in word:
         c[i.lower()] += 1
     
-    return min(c, key=c.get)
+    return max(c, key=c.get)
 
 def frequent_letter2(word):
     """
@@ -337,17 +338,17 @@ def frequent_letter2(word):
     for i in word:
         c[i] += 1
         
-    minimal = min(c, key=c.get)
+    maximal = max(c, key=c.get)
     
     
-    return list(filter(lambda x: c[x] == c[minimal], c))
+    return list(filter(lambda x: c[x] == c[maximal], c))
 
 
-# In[25]:
+# In[7]:
 
 
 print(frequent_letter("mala"))
-print(frequent_letter2("mala"))
+print(frequent_letter2("malal"))
 
 
 # ### 10. Convert a number represented as a sequence of decimal digits to the binary representation.
